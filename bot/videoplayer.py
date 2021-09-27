@@ -140,7 +140,7 @@ async def startvideo(client, m: Message):
                     stream_type=StreamType().local_stream,
                 )
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/0faaa780ae861fb780814.png",
+                    photo = "https://telegra.ph/file/478b81ccffd60ccae5ef0.jpg",
                     reply_markup=keyboard,
                     caption=f"💡 **video streaming started!**\n\n🏷 **Name:** {title}\n⏱ **Duration:** `{convert_seconds(duration)} m`\n\n» **join to video chat on the top to watch the video.**")
                 return await msg.delete()
