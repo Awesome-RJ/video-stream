@@ -11,12 +11,12 @@ import glob
 import importlib
 from pathlib import Path
 from pyrogram import Client, idle
-from config import Veez 
+from config import Veez
 from bot.videoplayer import app
 from bot.videoplayer import call_py
 from helpers.loggings import LOG
- 
-    
+
+
 bot = Client(
     ":memory:",
     Veez.API_ID,
@@ -29,7 +29,7 @@ StartTime = time.time()
 
 loop = asyncio.get_event_loop()
 
-_path = f"bot/*.py"
+_path = "bot/*.py"
 files = glob.glob(_path)
 
 def load_plugins(plugin_name):
@@ -38,8 +38,8 @@ def load_plugins(plugin_name):
     spec = importlib.util.spec_from_file_location(name, path)
     load = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(load)
-    sys.modules[f"bot." + plugin_name] = load
-    print("Imported => " + plugin_name)
+    sys.modules[f"bot.{plugin_name}"] = load
+    print(f"Imported => {plugin_name}")
 
 async def start():
     print('\n')
